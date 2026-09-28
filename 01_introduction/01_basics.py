@@ -5,7 +5,7 @@
 Multi-line comment
 """
 
-# OPERATORS
+# ARITHMETIC OPERATORS
 
 """
 Addition + 
@@ -35,7 +35,7 @@ Numeric Types: int, float (decimal point or exponential notation, like 2.51 or -
 Sequence Types:	list (ordered, mutable, can be of varying data types), tuple (immutable collection, parentheses, e.g., (1, 2, 3)), range (used for looping)
 Mapping Type: dict (key-value pairs, in {}, mutable)
 Set Types: set (unordered collection of unique elements, curly braces, mutable, e.g., {1,2,3}), frozenset (immutable version of set)
-Boolean Type: bool
+Boolean Type: bool (True/False, capitalized)
 Binary Types (handles raw binary data like images, files, machine code, network packets): bytes (single bytes, ints 0-255, immutable), bytearray (ordered, mutable), memoryview (allows access to internal data of the object without making a copy)
 None Type: NoneType (represents the absence of a value or a null value, like None, often used as placeholder or a function return value)
 """
