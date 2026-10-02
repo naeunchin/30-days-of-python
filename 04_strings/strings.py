@@ -75,3 +75,25 @@ print(second_letter) # y
 last_index = len(language) - 1
 last_letter = language[last_index]
 print(last_letter) # n
+
+# Slicing strings into substrings using the slice operator (colon)
+language = 'Python'
+first_three = language[0:3] # starts at zero index and up to 3 but not include 3
+print(first_three) #Pyt
+last_three = language[3:6]
+print(last_three)   # hon
+# Can skip chars by passing a step arg to slice method 
+pto = language[0:6:2] 
+print(pto) # Pto
+
+# Reverse strings using the syntax [start:stop:step] where step is -1
+# Leaving start and stop empty will reverse the string
+reversed_language = language[::-1]
+print(reversed_language) # nohtyP
+# Can also use the reversed() function combined with the join() method to reverse a string
+reversed_language = ''.join(reversed(language))
+
+# === STRING METHODS ===
+# Python has a set of built-in methods that can be used on strings.
+# e.g., capitalize(), upper(), lower(), title(), strip(), split(), replace(), find(), index(), isalpha(), isdigit(), isspace(), join(), format(), count(), startswith(), endswith() etc.
+# https://www.w3schools.com/python/python_ref_string.asp
