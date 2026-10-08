@@ -97,3 +97,12 @@ reversed_language = ''.join(reversed(language))
 # Python has a set of built-in methods that can be used on strings.
 # e.g., capitalize(), upper(), lower(), title(), strip(), split(), replace(), find(), index(), isalpha(), isdigit(), isspace(), join(), format(), count(), startswith(), endswith() etc.
 # https://www.w3schools.com/python/python_ref_string.asp
+
+variable = 'Coding For All'
+print(len(variable))
+
+# Replace the word coding in the string 'Coding For All' to 'Python For All'
+replaced_variable = variable.replace('Coding', 'Python')
+
+# Convert all uppercase characters to lowercase and all lowercase characters to uppercase characters
+lowercase_variable = variable.upper() # cODING fOR aLL
