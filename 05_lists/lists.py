@@ -143,12 +143,35 @@ fruits = ['banana', 'orange', 'mango', 'lemon']
 fruits = sorted(fruits,reverse=True) # ['orange', 'mango', 'lemon', 'banana']
 
 
-# EXERCISES 
+# === EXERCISES ===
 ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 
 # Sort the list and find the min and max age
+ages.sort()
+min_age = ages[0]
+max_age = ages[len(ages) - 1]
+
 # Add the min age and the max age again to the list
+ages.append(min_age)
+ages.append(max_age)
+
 # Find the median age (one middle item or two middle items divided by two)
-# Find the average age (sum of all items divided by their number )
+    # // is the floor division operator, which returns the largest integer less than or equal to the result of the division
+     # / returns a precise decimal (float) result of the division
+if len(ages) % 2 == 0: # even list (find 2 middle items and divide by 2)
+    mid1 = ages[len(ages) // 2 - 1] # remember BEDMAS order of operations, so we need to subtract 1 from the index to get the first middle item
+    mid2 = ages[len(ages) // 2] 
+    median_age = (mid1 + mid2) / 2  
+else: # odd list (find the middle item)
+    median_age = ages[len(ages) // 2]
+
+# Find the average age (sum of all items divided by their number)
+average_age = sum(ages) / len(ages)
+
 # Find the range of the ages (max minus min)
+age_range = max_age - min_age
+
 # Compare the value of (min - average) and (max - average), use abs() method
+    # abs() returns the absolute value of a number (removes the negative sign)
+min_average_diff = abs(min_age - average_age)
+max_average_diff = abs(max_age - average_age)
