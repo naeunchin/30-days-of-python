@@ -118,3 +118,47 @@ for number in range(5):
     pass
 
 # === EXERCISES === 
+
+# 1. Make a triangle of #
+for i in range(1, 8): # loop runs 7 times with i going from 1 to 7, increments by 1 by default
+    print('#' * i) # Each loop repeats the # character i times so each row is 1 char longer than the row before it
+
+# 2. make a square of #
+    # 8 #'s horizontally and vertically 
+for i in range(8): # outer loop that runs 8 times; one row 
+    for j in range(8): # runs 8 times and runs in full on every pass of the outer loop... each of its passes prints one # in the current row 
+        print('#', end=" ") # print() adds a newline at the end/next output, so end=" " replaces the newline with a space
+    print() # outputs only a newline, which ends the row; runs once per row, after the inner loop has printed all 8 #s
+
+print('---')
+
+# Alternative (not using a nested loop)
+for i in range(8):
+    print('# ' * 8)
+
+# 3. print multiplication (0 * 0 = 0, 1 * 1 = 1, 2 * 2 = 4,...)
+for i in range(0, 11, 1):
+    print(f'{i} x {i} = {i * i}')
+
+# 4. Iterate through the list, ['Python', 'Numpy','Pandas','Django', 'Flask'] using a for loop and print out the items
+python_tools = ['Python', 'Numpy','Pandas','Django', 'Flask']
+for python_tool in python_tools:
+    print(python_tool)
+
+# 5. Use for loop to iterate from 0 to 100 and print only odd numbers
+for i in range(1, 101):
+    if i % 2 != 0:
+        print(f'{i}')
+
+# 6. Use the FOR loop to iterate from 0 to 100 and print the sum of all evens and the sum of all odds 
+sum_evens = 0
+sum_odds = 0
+for i in range(101):
+    if i % 2 == 0:
+        sum_evens += i
+    else:
+        sum_odds += i
+print(f'The sum of all even numbers: {sum_evens}')
+print(f'The sum of all odd numbers: {sum_odds}')
+
+# 7. 
