@@ -1,3 +1,5 @@
+from countries_data import countries
+
 # === LOOPS ===
 # while loop: executes a block of code as long as a condition is true
 count = 0
@@ -161,4 +163,62 @@ for i in range(101):
 print(f'The sum of all even numbers: {sum_evens}')
 print(f'The sum of all odd numbers: {sum_odds}')
 
-# 7. 
+# 7. From the fruit list, ['banana', 'orange', 'mango', 'lemon'] reverse the order using loop
+fruits = ['banana', 'orange', 'mango', 'lemon']
+
+# 8. From the fruit list, loop through the list and extract all the fruits containing the word 'an'
+sub_fruits = []
+
+for fruit in fruits: 
+    if ('an' in fruit):
+        sub_fruits.append(fruit)
+print(sub_fruits)
+
+# 9. From the countries_data.py file, answer the questions: 
+    # --- What are the total number of languages in the data ---
+num_of_languages = set()
+
+for country in countries: 
+    for language in country['languages']:
+        num_of_languages.add(language)
+print(len(num_of_languages))
+
+    # --- Find the ten most spoken languages from the data ---
+counts = {} # In an empty dict, put the count in each pair; python sorts pairs by their first item, so no key needed 
+    # keys = language names, values = counts of each language in the data
+for country in countries: 
+    for language in country['languages']:
+        if language in counts:
+            counts[language] += 1
+        else:
+            counts[language] = 1
+ 
+pairs = [] # preparing the data for sorting
+for language, count in counts.items(): # counts.items(): returns a dynamic view object containing the key-value pairs of a dictionary as a list of tuples 
+    pairs.append((count, language)) # create a tuple where the count comes first and the language name comes second, and add it to a list called pairs 
+        # In python, it sorts a list of tuples by the first element of each tuple by default 
+        # by putting count first, Python will automatically sort the languages by frequency from lowest to highest 
+
+# The pairs look like (91, 'English'), so sorting them sorts by the count. reverse=True puts the largest first (descending order), and [:10] keeps the top ten.
+pairs.sort(reverse=True)
+
+for count, language in pairs[:10]: # get the top 10 
+    print(f'{language}: {count}')
+
+    # alternative: sort the names by their count: counts.get returns the count for each language name
+        # top_ten = sorted(counts, key=counts.get, reverse=True)[:10]
+
+    # --- Find the 10 most populated countries in the world ---
+        # Since there is a population key-value directly attached, can pull the data into a list 
+        # sort countries from highest to lowest (descending order): list.sort()
+        # can use pairs trick to put the numeric value first, then get top 10
+
+pairs = []
+for country in countries:
+    population = country['population']
+    name = country['name']
+    pairs.append((population, name)) # create a tuple where the population comes first and the country name comes second, and add it to a list called pairs
+
+pairs.sort(reverse=True)
+for population, country in pairs[:10]:
+    print(f'{country}: {population}')
