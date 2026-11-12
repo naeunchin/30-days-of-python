@@ -101,9 +101,136 @@ def arbitrary_named_args(**args):
         print(" * key:", k, "value:", v)
 
 # Can pass functions around as params 
-def square_number (n):
+def square_number(n):
     return n ** n
 def do_something(f, x):
     return f(x)
 print(do_something(square_number, 3)) # 27
 
+# === EXERCISES === 
+
+# Temperature in °C can be converted to °F using this formula: °F = (°C x 9/5) + 32. Write a function which converts °C to °F, convert_celsius_to_fahrenheit.
+def convert_celsius_to_fahrenheit(celcius):
+    farenheit = (celcius * 9/5) + 32
+    return farenheit
+
+# Write a function called add_all_nums which takes arbitrary number of arguments and sums all the arguments. Check if all the list items are number types. If not do give a reasonable feedback.
+def add_all_nums(*nums):
+    total = 0
+    for num in nums:
+        if type(num) != int and type(num) != float:
+            return 'Provide numbers only.'
+        else:
+            total += num
+    return total
+
+print(add_all_nums(1, 2, 3)) # 6
+
+
+# Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array (use loops).
+def reverse_list(array):
+    reversed_array = []
+    # use range(start, stop, step) to iterate through the array from end --> start 
+    # range stop value is -1, because it is exclusive (make sure 0 is included) 
+    for index in range(len(array) - 1, -1, -1):
+        reversed_array.append(array[index])
+
+    return reversed_array
+
+print(reverse_list([1, 2, 3, 4, 5])) # [5, 4, 3, 2, 1]
+print(reverse_list(["A", "B", "C"])) # ["C", "B", "A"]
+
+# Call your function factorial, it takes a whole number as a parameter and it return a factorial of the number
+def factorial(num):
+    factorial_num = 0
+    if type(num) != int or num < 0:
+        return 'Provide whole numbers only.'
+    if num == 0 or num == 1:
+        factorial_num = 1
+    else:
+        factorial_num = num * factorial(num - 1)
+    return factorial_num
+
+# Call your function is_empty, it takes a parameter and it checks if it is empty or not
+def is_empty(param):
+    if param:
+        return False
+    return True
+
+# Write different functions which take lists. They should calculate_mean, calculate_median, calculate_mode, calculate_range, calculate_variance, calculate_std (standard deviation)
+def calculate_mean(numbers):
+    if len(numbers) == 0:
+        return 'List is empty.'
+    return sum(numbers) / len(numbers)
+
+def calculate_median(numbers):
+    if len(numbers) == 0:
+        return 'List is empty.'
+    sorted_numbers = sorted(numbers)
+    n = len(sorted_numbers)
+    mid = n // 2
+    if n % 2 == 0:
+        return (sorted_numbers[mid - 1] + sorted_numbers[mid]) / 2
+    else:
+        return sorted_numbers[mid]
+
+def calculate_mode(numbers):
+    if len(numbers) == 0:
+        return 'List is empty.'
+    frequency = {}
+    for num in numbers:
+        frequency[num] = frequency.get(num, 0) + 1
+    max_freq = max(frequency.values())
+    modes = [key for key, value in frequency.items() if value == max_freq]
+    return modes
+
+def calculate_range(numbers):
+    if len(numbers) == 0:
+        return 'List is empty.'
+    return max(numbers) - min(numbers)
+
+def calculate_variance(numbers):
+    if len(numbers) == 0:
+        return 'List is empty.'
+    mean = calculate_mean(numbers)
+    return sum((x - mean) ** 2 for x in numbers) / len(numbers)
+
+def calculate_std(numbers):
+    if len(numbers) == 0:
+        return 'List is empty.'
+    variance = calculate_variance(numbers)
+    return variance ** 0.5
+
+# Create a function called show_args to take an arbitrary number of named arguments and print their names and values
+def show_args(**kwargs):
+    for key, value in kwargs.items():
+        print(f"{key}: {value}")
+
+show_args(name="Alice", age=30, city="New York")
+# Received: name: Alice, age: 30, city: New York
+show_args(name="Bob", pet="Fluffy, the bunny")
+# Received: name: Bob, pet: Fluffy, the bunny
+
+# Write a function called is_prime, which checks if a number is prime
+    # Prime number is a number that is only divisible by 1 and itself (2 factors). A prime number is greater than 1.
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+# Write a functions which checks if all items are unique in the list
+def are_all_unique(lst):
+    return len(lst) == len(set(lst))
+
+# Write a function which checks if all the items of the list are of the same data type
+def are_all_same_type(lst):
+    if len(lst) == 0:
+        return True
+    first_type = type(lst[0])
+    for item in lst:
+        if type(item) != first_type:
+            return False
+    return True
