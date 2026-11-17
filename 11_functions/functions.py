@@ -223,7 +223,15 @@ def is_prime(num):
 
 # Write a functions which checks if all items are unique in the list
 def are_all_unique(lst):
-    return len(lst) == len(set(lst))
+    seen = set()
+    for item in lst:
+        if item in seen:
+            return False
+        seen.add(item)
+    return True
+
+# def are_all_unique(lst):
+#     return len(lst) == len(set(lst))
 
 # Write a function which checks if all the items of the list are of the same data type
 def are_all_same_type(lst):
